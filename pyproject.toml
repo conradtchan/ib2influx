@@ -30,3 +30,6 @@ dependencies = [
 # See configuration details in https://github.com/pypa/setuptools_scm
 version_scheme = "no-guess-dev"
 fallback_version = "0.0.0"
+
+[project.scripts]
+ib2influx = "ib2influx:run"

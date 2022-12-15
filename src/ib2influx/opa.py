@@ -1,7 +1,7 @@
 import csv
 
-from loader import Loader
-from utils import cmd
+from .loader import Loader
+from .utils import cmd
 
 
 class LoaderOPA(Loader):
