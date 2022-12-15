@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=59.0"]
+requires = ["setuptools>=59.0", "setuptools_scm[toml]>=5"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -25,3 +25,8 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/conradtchan/ib2influx"
 "Bug Tracker" = "https://github.com/conradtchan/ib2influx/issues"
+
+[tool.setuptools_scm]
+# See configuration details in https://github.com/pypa/setuptools_scm
+version_scheme = "no-guess-dev"
+fallback_version = "0.0.0"
