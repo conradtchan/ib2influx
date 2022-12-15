@@ -1,8 +1,10 @@
 import sys
 from pathlib import Path
 
-from . import opa
 import yaml
+
+from . import opa
+
 
 def run(argv=sys.argv):
     if len(argv) < 2:
