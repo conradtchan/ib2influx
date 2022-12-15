@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ib2influx"
-version = "0.0.1"
+dynamic = ["version"]
 authors = [
     { name="Conrad Chan", email="conradchan@hotmail.com.au" },
 ]
