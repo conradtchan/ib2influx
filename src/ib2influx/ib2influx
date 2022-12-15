@@ -3,9 +3,8 @@
 import sys
 from pathlib import Path
 
-import yaml
-
 import opa
+import yaml
 
 if len(sys.argv) < 2:
     print("Usage: ib2influx config.yml")
