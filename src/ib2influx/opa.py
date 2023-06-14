@@ -79,7 +79,10 @@ class LoaderOPA(Loader):
                     value = int(row[key_col[opa_key]])
 
                     # Perform conversion and add to dict using the InfluxDB key
-                    data[host][influx_key] = self.convert_opa_units(value)
+                    if "Data" in opa_key:
+                        data[host][influx_key] = self.convert_opa_units(value)
+                    else:
+                        data[host][influx_key] = value
 
         return data
 
