@@ -1,9 +1,10 @@
+import shutil
 import sys
 from pathlib import Path
 
 import yaml
 
-from . import opa
+from . import mlx, opa
 
 
 def run(argv=sys.argv):
@@ -17,4 +18,14 @@ def run(argv=sys.argv):
         else:
             raise FileNotFoundError
 
-        opa.LoaderOPA(config)
+        # Check if we are using OPA by checking if the opaextractperf executable is in the path
+        path = shutil.which("opaextractperf")
+        if path is not None:
+            print("OPA found")
+            opa.LoaderOPA(config)
+
+        # Check if we are using Mellanox by checking if the ibnetdiscover executable is in the path
+        path = shutil.which("ibnetdiscover")
+        if path is not None:
+            print("Mellanox found")
+            mlx.LoaderMLX(config)
