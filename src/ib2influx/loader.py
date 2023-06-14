@@ -61,9 +61,10 @@ class Loader:
         """
         write_api = self.influx_client.write_api()
 
-        # Dictionary-style write for each item in dict
+        # Dictionary-style the items
+        entries = []
         for host in data:
-            entry = [
+            entries += [
                 {
                     "measurement": "infiniband",
                     "tags": {"host": host},
@@ -72,12 +73,12 @@ class Loader:
                 }
             ]
 
-            write_api.write(
-                self.influx_config["bucket"],
-                self.influx_config["org"],
-                entry,
-                write_precision="s",
-            )
+        write_api.write(
+            self.influx_config["bucket"],
+            self.influx_config["org"],
+            entries,
+            write_precision="s",
+        )
 
         write_api.close()
 
