@@ -75,8 +75,9 @@ class LoaderOPA(Loader):
                 data[host] = {}
 
                 for influx_key, opa_key in self.KEYS.items():
-                    # Convert from string to int
-                    value = int(row[key_col[opa_key]])
+                    # Safely convert cell to int, treat empty strings as 0
+                    raw_value = row[key_col[opa_key]].strip()
+                    value = int(raw_value) if raw_value else 0
 
                     # Perform conversion and add to dict using the InfluxDB key
                     if "Data" in opa_key:
